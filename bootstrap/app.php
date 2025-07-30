@@ -20,8 +20,6 @@ return Application::configure(basePath: dirname(__DIR__))
         $exceptions->render(function (Throwable $e, $request) {
         return response()->json([
             'message' => $e->getMessage(),
-            'exception' => class_basename($e),
-            'trace' => config('app.debug') ? $e->getTrace() : [],
         ], 500);
     });
     })->create();
