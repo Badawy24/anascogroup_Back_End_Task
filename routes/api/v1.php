@@ -21,15 +21,6 @@ Route::get('/plans', [PlanController::class, 'index']);
 
 Route::post('/stripe/webhook', [StripeWebhookController::class, 'handle']);
 
-Route::get('/payment-success', function () {
-    return response()->json(['message' => 'Payment successful']);
-})->name('payment-success');
-
-Route::get('/payment-cancel', function () {
-    return response()->json(['message' => 'Payment canceled']);
-})->name('payment-cancel');
-
-
 Route::middleware('auth:sanctum')->group(function () {
     Route::get('/my-transactions', [TransactionController::class, 'index']);
     Route::post('/logout', [AuthController::class, 'logout']);
