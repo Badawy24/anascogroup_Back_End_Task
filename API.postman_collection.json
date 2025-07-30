@@ -1,0 +1,122 @@
+{
+  "info": {
+    "_postman_id": "3b59f1c6-6d76-488f-9295-7fb4bf05f730",
+    "name": "anascogroup_API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Register",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Badawy\",\n  \"email\": \"badawyy@gmail.com\",\n  \"password\": \"P@ssw0rd\",\n  \"password_confirmation\": \"P@ssw0rd\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/api/v1/register",
+          "host": ["{{base_url}}"],
+          "path": ["api", "v1", "register"]
+        }
+      }
+    },
+    {
+      "name": "Login",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"email\": \"badawyy@gmail.com\",\n  \"password\": \"P@ssw0rd\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/api/v1/login",
+          "host": ["{{base_url}}"],
+          "path": ["api", "v1", "login"]
+        }
+      }
+    },
+    {
+      "name": "Logout",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/api/v1/logout",
+          "host": ["{{base_url}}"],
+          "path": ["api", "v1", "logout"]
+        }
+      }
+    },
+    {
+      "name": "Plans",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/api/v1/plans",
+          "host": ["{{base_url}}"],
+          "path": ["api", "v1", "plans"]
+        }
+      }
+    },
+    {
+      "name": "Checkout (Stripe)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"plan_id\": 1\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/api/v1/checkout/stripe",
+          "host": ["{{base_url}}"],
+          "path": ["api", "v1", "checkout", "stripe"]
+        }
+      }
+    },
+    {
+      "name": "My Transactions",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/api/v1/my-transactions",
+          "host": ["{{base_url}}"],
+          "path": ["api", "v1", "my-transactions"]
+        }
+      }
+    }
+  ]
+}
