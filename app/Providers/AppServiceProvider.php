@@ -2,23 +2,20 @@
 
 namespace App\Providers;
 
+use App\Repositories\Eloquent\PlanRepositoryEloquent;
+use App\Repositories\Interfaces\PlanRepositoryInterface;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
 {
-    /**
-     * Register any application services.
-     */
+
     public function register(): void
     {
-        //
+            $this->app->bind(PlanRepositoryInterface::class, PlanRepositoryEloquent::class);
+
     }
 
-    /**
-     * Bootstrap any application services.
-     */
     public function boot(): void
     {
-        //
     }
 }
